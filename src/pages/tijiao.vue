@@ -153,7 +153,7 @@
 					this.axios.post("https://qcakyo.fn.thelarkcloud.com/feedback",{
 
 								username:localStorage.getItem("username"),
-								xuehao:localStorage.getItem("xuehao")
+								xuehao:localStorage.getItem("xuehao"),
 							}).then(function (response){
 								console.log("查询提交记录成功")
 								console.log(response)
@@ -170,6 +170,10 @@
 					console.log(error)
 					this.upding=false
 					this.showerr=true
+					if(error.message.includes('timeout')){   // 判断请求异常信息中是否含有超时timeout字符串
+						console.log("错误回调", error);
+						alert("网络超时");
+					}
 					alert("作业已经上传服务器，但是更新名单失败！滴下徐鑫（734532469），可解决！😊")
 					
 				});
