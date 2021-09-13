@@ -5,6 +5,7 @@
 		</div>
 		<div class="user">
 			Hello 🎈,{{username}}-{{xuehao}}-{{banji}}！
+			<el-button size="mini" round @click="quit">退出登录</el-button>
 		</div>
 
 	</div>
@@ -19,8 +20,14 @@ export default {
 		xuehao:localStorage.getItem("xuehao"),
 		banji:localStorage.getItem("banji"),
 
-      };
+      }
     },
+	methods:{
+		quit(){
+			localStorage.clear()
+			location.reload()
+		}
+	}
     
      
 }
