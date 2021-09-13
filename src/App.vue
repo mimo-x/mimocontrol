@@ -1,28 +1,50 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+
+      <!-- <router-link to="/login" >登录</router-link> -->
+      <template v-if="!flag">
+              <router-view></router-view>
+      </template>
+      <template v-else>
+        <div>
+          <info></info>
+        </div>
+      </template>
+      
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import login from './pages/login.vue'
+import info from './pages/info.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    info
+    
+  },
+  data(){
+    return{
+        flag:localStorage.getItem('xuehao')
+    }
+  },
+  mounted() {
+    if(!localStorage.getItem('xuehao')){
+      //未登录
+      console.log("发现用户没有登录，正在跳转login")
+      this.$router.replace({
+        path:'/login'
+      })
+    }
+    
+    
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
+
