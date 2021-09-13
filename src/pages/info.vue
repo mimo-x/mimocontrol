@@ -20,6 +20,7 @@
 				<perlist v-else-if="rightpath === 'perlist'"></perlist>
 				<cartogram v-else-if="rightpath === 'cartogram'" ></cartogram>
 				<feedback v-else-if="rightpath === 'feedback'"></feedback>
+				<download v-else-if="rightpath === 'download'"></download>
 				<cartogram v-else></cartogram>
 				
 			</div>
@@ -38,12 +39,14 @@ import issue from "./issue.vue"
 import perlist from "./perlist.vue"
 import loading from "../components/loading.vue"
 import Feedback from '../components/feedback.vue'
+import Download from '../components/download.vue'
 
 export default {
 		name:"info",
 		components:{
 			top,left,tijiao,issue,cartogram,perlist,loading,
-Feedback
+Feedback,
+Download
 		},
 
 		data(){

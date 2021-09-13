@@ -1,40 +1,43 @@
 <template>
 	<div>
 		<template>
-		<el-tag style="margin:10px">已提交</el-tag>
-		<el-button type="primary" icon="el-icon-search" @click="weijiao" size="mini" style="margin:10px">查询未提交</el-button>
-		<el-table
-			:data="tableData"
-			style="width: 100%"
-			size="mini"
-			border
-			:row-class-name="tableRowClassName"
-			>
-			<el-table-column
-			type="index"
-			:index="1">
-			</el-table-column>
-			<el-table-column
-			prop="username"
-			label="姓名"
-			width="300">
-			</el-table-column>
-			<el-table-column
-			prop="xuehao"
-			label="学号"
-			width="300">
-			</el-table-column>
-			<el-table-column
-			prop="workname"
-			label="workname"
-			width="300">
-			</el-table-column>
- 
+		<div class="box">
+			
+			<el-tag style="margin:10px">已提交</el-tag>
+			<el-button type="primary" icon="el-icon-search" @click="weijiao" size="mini" style="margin:10px">查询未提交</el-button>
+			<el-table
+				:data="tableData"
+				style="width: 100%"
+				size="mini"
+				border
+				:row-class-name="tableRowClassName"
+				>
+				<el-table-column
+				type="index"
+				:index="1">
+				</el-table-column>
+				<el-table-column
+				prop="username"
+				label="姓名"
+				width="300">
+				</el-table-column>
+				<el-table-column
+				prop="xuehao"
+				label="学号"
+				width="300">
+				</el-table-column>
+				<el-table-column
+				prop="workname"
+				label="workname"
+				width="300">
+				</el-table-column>
+	
 
-		</el-table>
+			</el-table>
+		</div>
 		</template>
 
-
+		<el-divider></el-divider>
 		<template>
 		<div class="box">
 			<el-tag type="danger" style="margin:10px">未提交</el-tag>

@@ -53,7 +53,16 @@
 			<span slot="title">收取任务</span>
 			<el-menu-item :index="item.workname"  v-for="(item,index) in worklist.result" :key="index" >{{item.workname}} </el-menu-item>
 			
+			
+
 			</el-submenu>
+			<!-- 软件下载 -->
+			<el-menu-item-group>
+			<span slot="title">工具</span>
+			<!-- 班委发布任务 -->
+			<el-menu-item index="download">软件下载</el-menu-item>
+			</el-menu-item-group>
+			
 		</el-submenu>
 		<el-menu-item index="feedback" >
 			<i class="el-icon-time"></i>
@@ -218,7 +227,7 @@ export default {
 			
 		}else{
 			// 实现路径跳转
-			console.log("跳转方向",keyPath[0])
+			// console.log("跳转方向",keyPath[0])
 			this.$bus.$emit("changepath",keyPath[0])
 			
 		}
