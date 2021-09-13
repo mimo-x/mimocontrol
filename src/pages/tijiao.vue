@@ -149,6 +149,23 @@
 					this.show=true
 					// location.reload();
 					
+					//立马查询用户完成作业列表 可以看到提交记录
+					this.axios.post("https://qcakyo.fn.thelarkcloud.com/feedback",{
+
+								username:localStorage.getItem("username"),
+								xuehao:localStorage.getItem("xuehao")
+							}).then(function (response){
+								console.log("查询提交记录成功")
+								console.log(response)
+								// this.worklist = response.data.worklist
+								localStorage.setItem("feedback",JSON.stringify(response.data.worklist))
+
+							}).catch(function (error){
+								console.log(error);
+							})
+					alert("提交成功！")
+					this.$bus.$emit("changepath","cartogram")
+					
 				}).catch((error)=>{
 					console.log(error)
 					this.upding=false

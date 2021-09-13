@@ -55,7 +55,11 @@
 			
 			</el-submenu>
 		</el-submenu>
-		
+		<el-menu-item index="feedback" >
+			<i class="el-icon-time"></i>
+			<span slot="title">提交记录</span>
+		</el-menu-item>
+
 		<!-- 联系我们 -->
 		<el-submenu index="fankui">
 			<template slot="title">
@@ -128,7 +132,8 @@ export default {
 				});
 		//请求全班人员名单
 		this.axios.post('https://qcakyo.fn.thelarkcloud.com/userlist', {
-				banji:localStorage.getItem("banji")
+				banji:localStorage.getItem("banji"),
+				username:localStorage.getItem("username")
 				
 				})
 				.then(function (response) {
@@ -161,7 +166,20 @@ export default {
 				.catch(function (error) {
 					console.log(error);
 				});
+		//发送查询用户完成作业程度
+		this.axios.post("https://qcakyo.fn.thelarkcloud.com/feedback",{
+					
+					username:localStorage.getItem("username"),
+					xuehao:localStorage.getItem("xuehao")
+				}).then(function (response){
+					console.log("查询提交记录成功")
+					console.log(response)
+					// this.worklist = response.data.worklist
+					localStorage.setItem("feedback",JSON.stringify(response.data.worklist))
 
+				}).catch(function (error){
+					console.log(error);
+				})
 			
 	},
     methods: {
@@ -195,7 +213,7 @@ export default {
 
 		
 		if(keyPath[0]=="banwei"){
-			// 任务发布  （这个路径跳转比较特殊 单独拉出来）
+			// 班委任务发布  （这个路径跳转比较特殊 单独拉出来）
 			this.$bus.$emit("changepath",keyPath[1])
 			
 		}else{

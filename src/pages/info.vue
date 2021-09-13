@@ -19,6 +19,7 @@
 				<issue v-else-if="rightpath === 'issue'"></issue>
 				<perlist v-else-if="rightpath === 'perlist'"></perlist>
 				<cartogram v-else-if="rightpath === 'cartogram'" ></cartogram>
+				<feedback v-else-if="rightpath === 'feedback'"></feedback>
 				<cartogram v-else></cartogram>
 				
 			</div>
@@ -36,11 +37,13 @@ import tijiao from "./tijiao.vue"
 import issue from "./issue.vue"
 import perlist from "./perlist.vue"
 import loading from "../components/loading.vue"
+import Feedback from '../components/feedback.vue'
 
 export default {
 		name:"info",
 		components:{
-			top,left,tijiao,issue,cartogram,perlist,loading
+			top,left,tijiao,issue,cartogram,perlist,loading,
+Feedback
 		},
 
 		data(){
